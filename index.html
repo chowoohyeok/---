@@ -22,11 +22,12 @@
       min-height: 100vh;
       background: #fff;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .screen { display: none; min-height: 100vh; flex-direction: column; }
-    .screen.active { display: flex; }
+    .screen.active { display: flex; animation: none !important; transform: none !important; }
 
     /* ── SPLASH ── */
     #screen-splash {
@@ -218,7 +219,7 @@
       box-shadow: 0 4px 20px rgba(91,78,255,0.35);
     }
 
-    .btn-pick:not(:disabled):active { transform: translateX(-50%) scale(0.98); }
+    .btn-pick:not(:disabled):active { transform: translateX(-50%); opacity: 0.9; }
 
     .btn-pick:disabled { background: #ddd; color: #bbb; cursor: not-allowed; }
     .btn-pick:not(:disabled):active { transform: scale(0.98); }
@@ -441,7 +442,7 @@
       row.innerHTML = `
         <span class="item-num">${i + 1}</span>
         <div class="input-wrap">
-          <input class="item-input" type="text" placeholder="고민중인 항목을 입력해주세요." value="${val}" data-index="${i}" maxlength="20" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          <input class="item-input" type="text" placeholder="고민 중인 항목을 입력해주세요." value="${val}" data-index="${i}" maxlength="20" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
           <button class="btn-delete" data-index="${i}"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 1L1 11M1 1L11 11" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       `;
