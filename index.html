@@ -166,24 +166,23 @@
     .btn-delete:active { background: #ccc; }
 
     .btn-add {
-      margin: 0 24px 24px;
-      width: calc(100% - 48px);
-      padding: 14px;
-      border-radius: 10px;
-      border: 1.5px dashed #ddd;
-      background: transparent;
-      color: #aaa;
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 15px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 24px;
       cursor: pointer;
       transition: all 0.15s;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      margin: 8px auto 24px;
+      line-height: 1;
     }
 
-    .btn-add:active { background: #f9f9f9; }
+    .btn-add:active { opacity: 0.7; transform: scale(0.95); }
 
     .btn-pick {
       width: calc(100% - 48px);
@@ -378,7 +377,7 @@
     </div>
     <div class="section-label">항목 입력</div>
     <div class="items-list" id="items-list"></div>
-    <button class="btn-add" id="btn-add">＋</button>
+    <button class="btn-add" id="btn-add">+</button>
     <button class="btn-pick" id="btn-pick" disabled>픽원 시작!</button>
   </div>
 
