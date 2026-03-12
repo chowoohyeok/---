@@ -148,6 +148,9 @@
 
     .item-input:focus { background: #e8e8e8; }
     .item-input::placeholder { color: #aaa; font-size: 14px; }
+    .item-input[type="search"] { -webkit-appearance: none; appearance: none; }
+    .item-input[type="search"]::-webkit-search-cancel-button { display: none; }
+    .item-input[type="search"]::-webkit-search-decoration { display: none; }
 
     .btn-delete {
       position: absolute;
@@ -442,7 +445,7 @@
       row.innerHTML = `
         <span class="item-num">${i + 1}</span>
         <div class="input-wrap">
-          <input class="item-input" type="text" placeholder="고민 중인 항목을 입력해주세요." value="${val}" data-index="${i}" maxlength="20" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          <input class="item-input" type="search" placeholder="고민 중인 항목을 입력해주세요." value="${val}" data-index="${i}" maxlength="20" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
           <button class="btn-delete" data-index="${i}"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 1L1 11M1 1L11 11" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       `;
