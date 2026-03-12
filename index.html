@@ -113,6 +113,7 @@
       position: relative;
       display: flex;
       align-items: center;
+      height: 38px;
     }
 
     @keyframes slideIn {
@@ -131,31 +132,33 @@
 
     .item-input {
       width: 100%;
+      height: 38px;
       background: #f0f0f0;
       border: none;
-      border-radius: 10px;
-      padding: 15px 44px 15px 16px;
+      border-radius: 8px;
+      padding: 9px 36px 9px 12px;
       color: #1a1a1a;
       font-family: 'Noto Sans KR', sans-serif;
       font-size: 16px;
       outline: none;
       transition: background 0.2s;
+      box-sizing: border-box;
     }
 
     .item-input:focus { background: #e8e8e8; }
-    .item-input::placeholder { color: #aaa; font-size: 15px; }
+    .item-input::placeholder { color: #aaa; font-size: 14px; }
 
     .btn-delete {
       position: absolute;
-      right: 12px;
-      width: 26px;
-      height: 26px;
+      right: 6px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       border: none;
       background: #d0d0d0;
-      color: #777;
+      color: #666;
       cursor: pointer;
-      font-size: 11px;
+      font-size: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -167,22 +170,26 @@
     .btn-delete:active { background: #bbb; }
 
     .btn-add {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
+      padding: 3px;
       border-radius: 50%;
       border: none;
-      background: #e0e0e0;
-      color: #555;
-      font-size: 22px;
-      font-weight: 400;
+      background: #e8e8e8;
       cursor: pointer;
       transition: all 0.15s;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 16px auto 0;
-      padding: 0;
-      line-height: 1;
+      gap: 10px;
+    }
+
+    .btn-add svg {
+      width: 18px;
+      height: 18px;
+      fill: #000;
+      flex-shrink: 0;
     }
 
     .btn-add:active { opacity: 0.7; transform: scale(0.95); }
@@ -385,7 +392,7 @@
     </div>
     <div class="section-label">항목 입력</div>
     <div class="items-list" id="items-list"></div>
-    <button class="btn-add" id="btn-add"><span style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;margin-top:-1px">+</span></button>
+    <button class="btn-add" id="btn-add"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.2875 20.7125C11.0958 20.5208 11 20.2833 11 20V13H4C3.71667 13 3.47917 12.9042 3.2875 12.7125C3.09583 12.5208 3 12.2833 3 12C3 11.7167 3.09583 11.4792 3.2875 11.2875C3.47917 11.0958 3.71667 11 4 11H11V4C11 3.71667 11.0958 3.47917 11.2875 3.2875C11.4792 3.09583 11.7167 3 12 3C12.2833 3 12.5208 3.09583 12.7125 3.2875C12.9042 3.47917 13 3.71667 13 4V11H20C20.2833 11 20.5208 11.0958 20.7125 11.2875C20.9042 11.4792 21 11.7167 21 12C21 12.2833 20.9042 12.5208 20.7125 12.7125C20.5208 12.9042 20.2833 13 20 13H13V20C13 20.2833 12.9042 20.5208 12.7125 20.7125C12.5208 20.9042 12.2833 21 12 21C11.7167 21 11.4792 20.9042 11.2875 20.7125Z" fill="black"/></svg></button>
     <button class="btn-pick" id="btn-pick" disabled>픽원 시작!</button>
   </div>
 
