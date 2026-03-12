@@ -74,11 +74,12 @@
     #screen-input { background: #fff; padding: 0 0 120px; }
 
     .input-header {
-      padding: 56px 24px 24px;
+      padding: 60px 24px 16px;
+      text-align: center;
     }
 
     .input-header h1 {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
       color: #1a1a1a;
       letter-spacing: -0.5px;
@@ -87,15 +88,15 @@
     .section-label {
       font-size: 13px;
       color: #888;
-      font-weight: 500;
+      font-weight: 400;
       padding: 0 24px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .items-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       padding: 0 24px;
       margin-bottom: 0;
     }
@@ -120,19 +121,20 @@
     }
 
     .item-num {
-      font-size: 14px;
+      font-size: 15px;
       color: #aaa;
-      width: 16px;
+      width: 18px;
       flex-shrink: 0;
       text-align: center;
+      font-weight: 400;
     }
 
     .item-input {
       width: 100%;
-      background: #f5f5f7;
+      background: #f0f0f0;
       border: none;
       border-radius: 10px;
-      padding: 14px 44px 14px 16px;
+      padding: 15px 44px 15px 16px;
       color: #1a1a1a;
       font-family: 'Noto Sans KR', sans-serif;
       font-size: 16px;
@@ -140,55 +142,55 @@
       transition: background 0.2s;
     }
 
-    .item-input:focus { background: #eeeeee; }
-    .item-input::placeholder { color: #bbb; }
+    .item-input:focus { background: #e8e8e8; }
+    .item-input::placeholder { color: #aaa; font-size: 15px; }
 
     .btn-delete {
       position: absolute;
-      right: 10px;
-      width: 28px;
-      height: 28px;
+      right: 12px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       border: none;
-      background: #e0e0e0;
-      color: #999;
+      background: #d0d0d0;
+      color: #777;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 11px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       transition: all 0.15s;
+      font-weight: 600;
     }
 
-    .btn-delete:active { background: #ccc; }
+    .btn-delete:active { background: #bbb; }
 
     .btn-add {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       border: none;
-      background: #1a1a1a;
-      color: #fff;
+      background: #e0e0e0;
+      color: #555;
       font-size: 22px;
-      font-weight: 300;
+      font-weight: 400;
       cursor: pointer;
       transition: all 0.15s;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 12px auto 0;
+      margin: 16px auto 0;
       padding: 0;
       line-height: 1;
-      letter-spacing: 0;
     }
 
     .btn-add:active { opacity: 0.7; transform: scale(0.95); }
 
     .btn-pick {
       width: calc(100% - 48px);
-      padding: 18px;
-      border-radius: 14px;
+      padding: 19px;
+      border-radius: 16px;
       border: none;
       background: #5B4EFF;
       color: #fff;
@@ -197,13 +199,15 @@
       font-weight: 700;
       cursor: pointer;
       transition: all 0.15s;
-      align-self: center;
       position: fixed;
-      bottom: 32px;
+      bottom: 36px;
       left: 50%;
       transform: translateX(-50%);
       max-width: 342px;
+      box-shadow: 0 4px 20px rgba(91,78,255,0.35);
     }
+
+    .btn-pick:not(:disabled):active { transform: translateX(-50%) scale(0.98); }
 
     .btn-pick:disabled { background: #ddd; color: #bbb; cursor: not-allowed; }
     .btn-pick:not(:disabled):active { transform: scale(0.98); }
