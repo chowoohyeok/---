@@ -69,37 +69,29 @@
       max-width: 342px;
       box-shadow: 0 4px 20px rgba(91,78,255,0.35);
     }
-
     .btn-start:active { opacity: 0.85; }
 
     /* ── COUNT SCREEN ── */
     #screen-count {
       background: #fff;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 0 0 120px;
-    }
-
-    .count-top {
-      width: 100%;
-      padding: 70px 16px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       position: relative;
-      min-height: 220px;
+      min-height: 844px;
     }
 
+    /* Pick one 타이틀 - 피그마 정확한 위치 */
     .pixel-title {
+      position: absolute;
+      top: 126px;
+      left: calc(50% - 179px);
+      width: 358px;
       font-family: "Press Start 2P", cursive;
-      font-size: 36px;
+      font-size: 40px;
       font-weight: 400;
       color: #4B00FF;
       text-align: center;
-      line-height: 1.4;
-      position: relative;
-      z-index: 2;
+      line-height: 22px;
       animation: floatTitle 3s ease-in-out infinite;
+      z-index: 2;
     }
 
     @keyframes floatTitle {
@@ -107,55 +99,51 @@
       50% { transform: translateY(-8px); }
     }
 
-    .pixel-squares {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
+    /* 사각형 - 피그마 정확한 위치 */
     .sq {
       position: absolute;
+      background: linear-gradient(0deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.5) 100%), #4B00FF;
       animation: floatSq ease-in-out infinite;
-    }
-
-    .sq.large {
-      width: 15px;
-      height: 15px;
-      background: linear-gradient(0deg, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.50) 100%), #4B00FF;
-    }
-
-    .sq.small {
-      width: 10px;
-      height: 10px;
-      background: linear-gradient(0deg, rgba(255,255,255,0.50) 0%, rgba(255,255,255,0.50) 100%), #4B00FF;
+      z-index: 1;
     }
 
     @keyframes floatSq {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(10deg); }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
 
+    /* 질문 + 컨트롤 영역 - 피그마 정확한 위치 */
     .count-body {
-      width: 100%;
-      padding: 40px 24px 0;
+      position: absolute;
+      top: 308px;
+      left: 59px;
+      width: 272px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      gap: 40px;
     }
 
     .count-question {
-      font-size: 17px;
+      font-size: 20px;
       font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 32px;
+      color: #000;
+      line-height: normal;
+      align-self: stretch;
+    }
+
+    .count-control-wrap {
+      width: 224px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
     }
 
     .count-control {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 20px;
-      align-self: center;
-      margin-bottom: 16px;
+      gap: 16px;
     }
 
     .count-circle-btn {
@@ -163,8 +151,8 @@
       width: 24px;
       height: 24px;
       padding: 4px;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+      gap: 10px;
       border-radius: 12px;
       background: #D9D9D9;
       border: none;
@@ -175,28 +163,35 @@
 
     .count-circle-btn:active { background: #bbb; }
     .count-circle-btn.hidden { visibility: hidden; pointer-events: none; }
-    .count-circle-btn svg { width: 16px; height: 16px; }
+
+    .count-circle-btn svg {
+      width: 16px;
+      height: 16px;
+    }
 
     .count-number {
       display: flex;
       width: 100px;
       height: 100px;
+      padding: 22px 35px 21px 35px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 10px;
       border-radius: 50px;
       background: #D9D9D9;
       font-size: 48px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1;
+      font-weight: 500;
+      color: #000;
+      line-height: normal;
     }
 
     .count-hint {
       font-size: 12px;
-      color: #aaa;
-      text-align: center;
-      align-self: center;
+      font-weight: 500;
+      color: #acacac;
+      align-self: stretch;
+      line-height: normal;
     }
 
     .btn-go-input {
@@ -211,14 +206,13 @@
       font-weight: 700;
       cursor: pointer;
       transition: opacity 0.15s;
-      position: fixed;
+      position: absolute;
       bottom: 36px;
       left: 50%;
       transform: translateX(-50%);
       max-width: 342px;
       box-shadow: 0 4px 20px rgba(91,78,255,0.35);
     }
-
     .btn-go-input:active { opacity: 0.85; }
 
     /* ── INPUT ── */
@@ -269,7 +263,6 @@
       width: 18px;
       flex-shrink: 0;
       text-align: center;
-      font-weight: 400;
     }
 
     .input-wrap {
@@ -306,18 +299,15 @@
       right: 8px;
       width: 20px;
       height: 20px;
-      border-radius: 50%;
       border: none;
       background: transparent;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
       padding: 0;
     }
-
-    .btn-delete svg { width: 10px; height: 10px; flex-shrink: 0; }
+    .btn-delete svg { width: 10px; height: 10px; }
     .btn-delete:active { opacity: 0.5; }
 
     .btn-pick {
@@ -339,7 +329,6 @@
       max-width: 342px;
       box-shadow: 0 4px 20px rgba(91,78,255,0.35);
     }
-
     .btn-pick:disabled { background: #ddd; color: #bbb; cursor: not-allowed; box-shadow: none; }
     .btn-pick:not(:disabled):active { opacity: 0.85; }
 
@@ -376,10 +365,7 @@
     }
 
     /* ── RESULT ── */
-    #screen-result {
-      background: #fff;
-      padding: 24px;
-    }
+    #screen-result { background: #fff; padding: 24px; }
 
     .result-header {
       padding-top: 56px;
@@ -443,8 +429,9 @@
       font-weight: 700;
       cursor: pointer;
     }
+    .btn-kakao:active { opacity: 0.85; }
 
-    .btn-retry {
+    .btn-retry, .btn-reset {
       width: 100%;
       padding: 17px;
       border-radius: 12px;
@@ -456,19 +443,7 @@
       font-weight: 500;
       cursor: pointer;
     }
-
-    .btn-reset {
-      width: 100%;
-      padding: 17px;
-      border-radius: 12px;
-      border: none;
-      background: #f0f0f0;
-      color: #1a1a1a;
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-    }
+    .btn-retry:active, .btn-reset:active { background: #e5e5e5; }
 
     .toast {
       position: fixed;
@@ -484,7 +459,6 @@
       z-index: 999;
       white-space: nowrap;
     }
-
     .toast.show { transform: translateX(-50%) translateY(0); }
   </style>
 </head>
@@ -500,23 +474,38 @@
 
   <!-- COUNT -->
   <div id="screen-count" class="screen">
-    <div class="count-top">
-      <div class="pixel-squares" id="pixel-squares"></div>
-      <div class="pixel-title">Pick one</div>
-    </div>
+    <div class="pixel-title">Pick one</div>
+
+    <div class="sq" style="top:188px;left:43px;width:15px;height:15px;animation-delay:0.0s;animation-duration:2.5s;"></div>
+      <div class="sq" style="top:173px;left:78px;width:15px;height:15px;animation-delay:0.2s;animation-duration:2.8s;"></div>
+      <div class="sq" style="top:222px;left:93px;width:15px;height:15px;animation-delay:0.4s;animation-duration:3.1s;"></div>
+      <div class="sq" style="top:188px;left:130px;width:15px;height:15px;animation-delay:0.6s;animation-duration:3.4s;"></div>
+      <div class="sq" style="top:93px;left:125px;width:15px;height:15px;animation-delay:0.8s;animation-duration:2.5s;"></div>
+      <div class="sq" style="top:86px;left:206px;width:15px;height:15px;animation-delay:1.0s;animation-duration:2.8s;"></div>
+      <div class="sq" style="top:164px;left:237px;width:15px;height:15px;animation-delay:1.2s;animation-duration:3.1s;"></div>
+      <div class="sq" style="top:222px;left:275px;width:15px;height:15px;animation-delay:1.4s;animation-duration:3.4s;"></div>
+      <div class="sq" style="top:198px;left:212px;width:10px;height:10px;animation-delay:1.6s;animation-duration:2.5s;"></div>
+      <div class="sq" style="top:180px;left:172px;width:10px;height:10px;animation-delay:1.8s;animation-duration:2.8s;"></div>
+      <div class="sq" style="top:100px;left:263px;width:10px;height:10px;animation-delay:2.0s;animation-duration:3.1s;"></div>
+      <div class="sq" style="top:190px;left:336px;width:10px;height:10px;animation-delay:2.2s;animation-duration:3.4s;"></div>
+      
+
     <div class="count-body">
-      <div class="count-question">지금 몇 가지를 고민하고 계신가요?</div>
-      <div class="count-control">
-        <button class="count-circle-btn hidden" id="btn-minus">
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div class="count-number" id="count-display">3</div>
-        <button class="count-circle-btn" id="btn-plus">
-          <svg viewBox="0 0 16 16" fill="none"><path d="M8 3V13M3 8H13" stroke="#555" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
+      <p class="count-question">지금 몇 가지를 고민하고 계신가요?</p>
+      <div class="count-control-wrap">
+        <div class="count-control">
+          <button class="count-circle-btn hidden" id="btn-minus">
+            <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="7" width="12" height="2" fill="#000"/></svg>
+          </button>
+          <div class="count-number" id="count-display">3</div>
+          <button class="count-circle-btn" id="btn-plus">
+            <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="7" width="12" height="2" fill="#000"/><rect x="7" y="2" width="2" height="12" fill="#000"/></svg>
+          </button>
+        </div>
+        <p class="count-hint">pick one은 3가지 이상부터 도와드릴 수 있어요</p>
       </div>
-      <div class="count-hint">pick one은 3가지 이상부터 도와드릴 수 있어요</div>
     </div>
+
     <button class="btn-go-input" id="btn-go-input">입력하러 가기</button>
   </div>
 
@@ -552,7 +541,6 @@
   </div>
 
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
@@ -563,12 +551,12 @@
   const MAX_COUNT = 10;
   const emojis = ['🎯','🎲','🌟','⚡','🔥','💫','🎪','✨','🍀','🎁','👆','🙌'];
 
-  // ── SPLASH ──
+  // SPLASH
   document.getElementById('btn-start').addEventListener('click', () => {
     showScreen('screen-count');
   });
 
-  // ── COUNT ──
+  // COUNT
   function renderCount() {
     document.getElementById('count-display').textContent = itemCount;
     document.getElementById('btn-minus').classList.toggle('hidden', itemCount <= MIN_COUNT);
@@ -589,36 +577,7 @@
     showScreen('screen-input');
   });
 
-  // 사각형 생성
-  function createSquares() {
-    const container = document.getElementById('pixel-squares');
-    const positions = [
-      {top:'8%',left:'4%',size:'large',delay:'0s',dur:'2.5s'},
-      {top:'20%',left:'12%',size:'small',delay:'0.3s',dur:'3s'},
-      {top:'4%',left:'28%',size:'small',delay:'0.6s',dur:'2.8s'},
-      {top:'15%',left:'48%',size:'large',delay:'0.2s',dur:'3.2s'},
-      {top:'6%',left:'62%',size:'small',delay:'0.8s',dur:'2.6s'},
-      {top:'22%',left:'75%',size:'large',delay:'0.4s',dur:'3s'},
-      {top:'5%',left:'88%',size:'small',delay:'1s',dur:'2.7s'},
-      {top:'40%',left:'6%',size:'small',delay:'0.5s',dur:'3.1s'},
-      {top:'45%',left:'18%',size:'large',delay:'0.7s',dur:'2.9s'},
-      {top:'38%',left:'74%',size:'small',delay:'0.1s',dur:'3.3s'},
-      {top:'44%',left:'87%',size:'large',delay:'0.9s',dur:'2.7s'},
-      {top:'60%',left:'10%',size:'large',delay:'0.3s',dur:'3s'},
-      {top:'62%',left:'86%',size:'small',delay:'0.6s',dur:'2.8s'},
-    ];
-    positions.forEach(p => {
-      const sq = document.createElement('div');
-      sq.className = 'sq ' + p.size;
-      sq.style.top = p.top;
-      sq.style.left = p.left;
-      sq.style.animationDelay = p.delay;
-      sq.style.animationDuration = p.dur;
-      container.appendChild(sq);
-    });
-  }
-
-  // ── INPUT ──
+  // INPUT
   function renderItems() {
     const list = document.getElementById('items-list');
     list.innerHTML = '';
@@ -644,10 +603,10 @@
 
     list.querySelectorAll('.btn-delete').forEach(btn => {
       btn.addEventListener('click', e => {
-        items[+e.currentTarget.dataset.index] = '';
+        const idx = +e.currentTarget.dataset.index;
+        items[idx] = '';
         const input = e.currentTarget.closest('.item-row').querySelector('.item-input');
         input.value = '';
-        items[+e.currentTarget.dataset.index] = '';
         updatePickBtn();
       });
     });
@@ -672,7 +631,7 @@
     }, 2200);
   });
 
-  // ── RESULT ──
+  // RESULT
   document.getElementById('btn-retry').addEventListener('click', () => {
     const filled = items.filter(v => v.trim());
     showScreen('screen-loading');
@@ -712,7 +671,6 @@
     setTimeout(() => toast.classList.remove('show'), 2500);
   }
 
-  createSquares();
   renderCount();
   renderItems();
 </script>
